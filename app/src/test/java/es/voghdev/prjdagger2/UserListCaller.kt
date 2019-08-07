@@ -13,23 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package es.voghdev.prjdagger2;
+package es.voghdev.prjdagger2
 
-import java.util.List;
+import es.voghdev.prjdagger2.global.model.User
+import es.voghdev.prjdagger2.usecase.GetUsers
 
-import es.voghdev.prjdagger2.global.model.User;
-import es.voghdev.prjdagger2.usecase.GetUsers;
-
-public class UserListCollaborator extends BaseUnitTest {
-    public void getUsers(final GetUsers.Listener listener) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<User> list = generateMockUserList();
-                listener.onUsersReceived(list, true);
-            }
-        }).start();
-    }
-
-
+class UserListCaller(internal var userListCollaborator: UserListCollaborator) : GetUsers.Listener {
+	var result: List<User>
+		internal set
+	
+	fun getUsers() {
+		userListCollaborator.getUsers(this)
+	}
+	
+	override fun onUsersReceived(users: List<User>, isCached: Boolean) {
+		result = users
+	}
+	
+	override fun onError(e: Exception) {
+		/* Empty */
+	}
+	
+	override fun onNoInternetAvailable() {
+		/* Empty */
+	}
 }
