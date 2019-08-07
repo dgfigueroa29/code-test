@@ -19,13 +19,10 @@ class ThreadExecutor : Executor {
 		val keepAliveTime = KEEP_ALIVE_TIME
 		val timeUnit = TIME_UNIT
 		val workQueue = WORK_QUEUE
-		threadPoolExecutor = ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime.toLong(), timeUnit, workQueue)
+		threadPoolExecutor = ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime.toLong(), timeUnit, workQueue as BlockingQueue<Runnable>?)
 	}
 	
 	override fun run(interactor: Interactor) {
-		if(interactor == null) {
-			throw IllegalArgumentException("Interactor to execute can't be null")
-		}
 		threadPoolExecutor.submit { interactor.run() }
 	}
 	

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:card_view="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+	<android.support.v7.widget.CardView
+		android:id="@+id/cardDetail"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="6dp"
+		card_view:cardCornerRadius="10dp"
+		card_view:cardUseCompatPadding="false"
+		card_view:cardElevation="4dp">
+		<RelativeLayout
+			android:id="@+id/rlDetail"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@mipmap/background3"
+			android:paddingBottom="10dp">
+			<ImageView
+				android:contentDescription="@string/app_name"
+				android:id="@+id/ivImage"
+				android:layout_width="@dimen/user_w"
+				android:layout_height="@dimen/user_h"
+				android:layout_marginTop="16dp"
+				android:layout_centerHorizontal="true"
+				android:layout_alignParentTop="true"
+				android:src="@mipmap/ic_user_avatar" />
+			<TextView
+				android:layout_centerHorizontal="true"
+				android:layout_below="@+id/ivImage"
+				android:id="@+id/tvName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_margin="10dp"
+				android:text="@string/loading"
+				android:textStyle="bold"
+				android:textColor="@android:color/white"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textSize="16sp" />
+			<TextView
+				android:layout_centerHorizontal="true"
+				android:id="@+id/txtEmail"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/loading"
+				android:textColor="@android:color/white"
+				android:layout_below="@id/tvName"
+				android:layout_marginTop="10dp"
+				android:textSize="15sp"
+				android:textAppearance="?android:attr/textAppearanceMedium" />
+			<TextView
+				android:id="@+id/user_tv_label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_alignParentEnd="true"
+				android:layout_alignParentTop="true"
+				android:layout_margin="16dp"
+				android:text="@string/zero"
+				android:textAppearance="?android:attr/textAppearanceLargeInverse"
+				android:textColor="@color/yellow" />
+		</RelativeLayout>
+	</android.support.v7.widget.CardView>
+</RelativeLayout>
