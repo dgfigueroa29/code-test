@@ -6,6 +6,6 @@ internal class IdApiEntry {
 	private val value = ""
 	
 	fun parseId(): String {
-		return String.format("%s%s", name ?: "", value ?: "")
+		return String.format("%s%s", name, value)
 	}
 }
