@@ -17,26 +17,25 @@ package es.voghdev.prjdagger2
 
 import es.voghdev.prjdagger2.global.model.User
 import es.voghdev.prjdagger2.interactor.GetUsersInteractor
-import es.voghdev.prjdagger2.ui.presenter.UserListPresenter
 import es.voghdev.prjdagger2.usecase.GetUsers
 
 class PresenterCaller(internal var collaborator: GetUsersInteractor) : GetUsers.Listener {
-	var view: UserListPresenter.View? = null
-		internal set
-	
-	fun getUsers() {
-		collaborator.getAsync(this)
-	}
-	
-	override fun onUsersReceived(users: List<User>, isCached: Boolean) {
-	
-	}
-	
-	override fun onError(e: Exception) {
-		/* Empty */
-	}
-	
-	override fun onNoInternetAvailable() {
-		/* Empty */
-	}
+    var view: UserListView? = null
+        internal set
+
+    fun getUsers() {
+        collaborator.getAsync(this)
+    }
+
+    override fun onUsersReceived(users: List<User>, isCached: Boolean) {
+    
+    }
+
+    override fun onError(e: Exception) {
+        /* Empty */
+    }
+
+    override fun onNoInternetAvailable() {
+        /* Empty */
+    }
 }

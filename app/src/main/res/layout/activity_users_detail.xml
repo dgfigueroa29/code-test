@@ -3,29 +3,41 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:card_view="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/tools">
+	<include layout="@layout/toolbar" />
+	<View
+		android:layout_below="@+id/toolbar"
+		android:id="@+id/div"
+		android:layout_width="match_parent"
+		android:background="@android:color/white"
+		android:layout_height="@dimen/divider_size" />
 	<android.support.v7.widget.CardView
+		android:layout_margin="@dimen/half_separation"
+		android:layout_below="@+id/div"
 		android:id="@+id/cardDetail"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="6dp"
 		card_view:cardCornerRadius="10dp"
 		card_view:cardUseCompatPadding="false"
+		card_view:cardBackgroundColor="@color/primary"
 		card_view:cardElevation="4dp">
 		<RelativeLayout
 			android:id="@+id/rlDetail"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:background="@mipmap/background3"
+			android:background="@color/primary"
 			android:paddingBottom="10dp">
-			<ImageView
-				android:contentDescription="@string/app_name"
+			<de.hdodenhof.circleimageview.CircleImageView
 				android:id="@+id/ivImage"
 				android:layout_width="@dimen/user_w"
 				android:layout_height="@dimen/user_h"
+				android:contentDescription="@string/app_name"
 				android:layout_marginTop="16dp"
 				android:layout_centerHorizontal="true"
 				android:layout_alignParentTop="true"
+				app:civ_border_width="2dp"
+				app:civ_border_color="@color/light_gray"
 				android:src="@mipmap/ic_user_avatar" />
 			<TextView
 				android:layout_centerHorizontal="true"
@@ -41,15 +53,26 @@
 				android:textSize="16sp" />
 			<TextView
 				android:layout_centerHorizontal="true"
-				android:id="@+id/txtEmail"
+				android:id="@+id/tvEmail"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:text="@string/loading"
-				android:textColor="@android:color/white"
+				android:textColor="@color/orange"
 				android:layout_below="@id/tvName"
 				android:layout_marginTop="10dp"
 				android:textSize="15sp"
 				android:textAppearance="?android:attr/textAppearanceMedium" />
+			<TextView
+				android:layout_centerHorizontal="true"
+				android:id="@+id/tvAddress"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/loading"
+				android:textColor="@android:color/white"
+				android:layout_below="@id/tvEmail"
+				android:layout_marginTop="10dp"
+				android:textSize="15sp"
+				android:textAppearance="?android:attr/textAppearanceSmall" />
 			<TextView
 				android:id="@+id/user_tv_label"
 				android:layout_width="wrap_content"

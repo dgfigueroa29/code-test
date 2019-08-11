@@ -13,4 +13,13 @@ class User {
 	fun hasThumbnail(): Boolean {
 		return thumbnail != null && !thumbnail!!.isEmpty()
 	}
+	
+	override fun toString(): String {
+		return "User{\nid: $id \n" +
+			"name: $name \n" +
+			"address: $address \n" +
+			"username: $username \n" +
+			"thumbnail: $thumbnail \n" +
+			"email: $email}"
+	}
 }

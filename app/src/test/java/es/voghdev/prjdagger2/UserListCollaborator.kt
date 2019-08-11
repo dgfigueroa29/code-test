@@ -15,16 +15,13 @@
  */
 package es.voghdev.prjdagger2
 
-import es.voghdev.prjdagger2.global.model.User
 import es.voghdev.prjdagger2.usecase.GetUsers
 
 class UserListCollaborator : BaseUnitTest() {
-	fun getUsers(listener: GetUsers.Listener) {
-		Thread(Runnable {
-			val list = generateMockUserList()
-			listener.onUsersReceived(list, true)
-		}).start()
-	}
-	
-	
+    fun getUsers(listener: GetUsers.Listener) {
+        Thread(Runnable {
+            val list = generateMockUserList()
+            listener.onUsersReceived(list, true)
+        }).start()
+    }
 }

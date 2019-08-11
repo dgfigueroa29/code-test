@@ -18,23 +18,23 @@ package es.voghdev.prjdagger2
 import es.voghdev.prjdagger2.global.model.User
 import es.voghdev.prjdagger2.usecase.GetUsers
 
-class RepositoryCaller(internal var collaborator: GetUsers) : GetUsers.Listener {
-	var result: List<User>
-		internal set
-	
-	fun getUsers() {
-		collaborator.getAsync(this)
-	}
-	
-	override fun onUsersReceived(users: List<User>, isCached: Boolean) {
-		result = users
-	}
-	
-	override fun onError(e: Exception) {
-		/* Empty */
-	}
-	
-	override fun onNoInternetAvailable() {
-		/* Empty */
-	}
+class RepositoryCaller(internal var collaborator: GetUsers?) : GetUsers.Listener {
+    lateinit var result: List<User>
+        internal set
+
+    fun getUsers() {
+        collaborator!!.getAsync(this)
+    }
+
+    override fun onUsersReceived(users: List<User>, isCached: Boolean) {
+        result = users
+    }
+
+    override fun onError(e: Exception) {
+        /* Empty */
+    }
+
+    override fun onNoInternetAvailable() {
+        /* Empty */
+    }
 }

@@ -1,63 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/user_container"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/user_iv_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/background3" />
-
-    <ImageView
-        android:id="@+id/user_iv_thumbnail"
-        android:layout_width="@dimen/user_thumbnail_w"
-        android:layout_height="@dimen/user_thumbnail_h"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/user_tv_title"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:src="@mipmap/ic_user_avatar" />
-
-    <TextView
-        android:id="@+id/user_tv_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/zero"
-        android:textAppearance="?android:attr/textAppearanceLargeInverse"
-        android:textColor="@color/yellow" />
-
-    <TextView
-        android:id="@+id/user_tv_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/user_tv_label"
-        android:layout_marginLeft="16dip"
-        android:layout_toLeftOf="@+id/user_tv_label"
-        android:layout_toRightOf="@+id/user_iv_thumbnail"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/loading"
-        android:textAppearance="?android:attr/textAppearanceLargeInverse" />
-
-    <TextView
-        android:id="@+id/user_tv_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/user_iv_thumbnail"
-        android:layout_alignLeft="@+id/user_tv_title"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="@string/loading"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/orange" />
-
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/user_container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="?android:attr/selectableItemBackground"
+	android:paddingStart="@dimen/double_separation"
+	android:paddingEnd="@dimen/double_separation">
+	<de.hdodenhof.circleimageview.CircleImageView
+		android:id="@+id/user_iv_thumbnail"
+		android:layout_width="@dimen/user_thumbnail_w"
+		android:layout_height="@dimen/user_thumbnail_w"
+		android:layout_margin="@dimen/half_separation"
+		android:contentDescription="@string/app_name"
+		android:src="@mipmap/ic_user_avatar" />
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_marginStart="@dimen/half_separation"
+		android:layout_marginLeft="@dimen/half_separation"
+		android:layout_toStartOf="@+id/user_tv_label"
+		android:layout_toLeftOf="@+id/user_tv_label"
+		android:layout_toEndOf="@+id/user_iv_thumbnail"
+		android:layout_toRightOf="@+id/user_iv_thumbnail">
+		<TextView
+			android:id="@+id/user_tv_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:maxLines="1"
+			android:text="@string/loading"
+			android:textAppearance="?android:attr/textAppearanceLargeInverse"
+			android:textColor="@android:color/white"
+			android:textSize="14sp"
+			tools:text="Contact Name" />
+		<TextView
+			android:id="@+id/user_tv_description"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/user_tv_title"
+			android:ellipsize="end"
+			android:maxLines="1"
+			android:text="@string/loading"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="@color/orange"
+			android:textSize="12sp"
+			tools:text="Number" />
+		<ImageView
+			android:id="@+id/user_iv_background"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@android:color/transparent"
+			android:contentDescription="@string/app_name"
+			android:scaleType="centerCrop"
+			android:src="@mipmap/background3"
+			android:visibility="gone" />
+	</RelativeLayout>
+	<TextView
+		android:id="@+id/user_tv_label"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentEnd="true"
+		android:layout_alignParentRight="true"
+		android:layout_marginTop="20dp"
+		android:layout_marginEnd="10dp"
+		android:layout_marginRight="10dp"
+		android:text="@string/zero"
+		android:textAppearance="?android:attr/textAppearanceLargeInverse"
+		android:textColor="@color/yellow" />
+	<View
+		android:layout_below="@+id/user_iv_thumbnail"
+		android:id="@+id/div"
+		android:layout_width="match_parent"
+		android:background="@android:color/white"
+		android:layout_height="@dimen/divider_size" />
 </RelativeLayout>
